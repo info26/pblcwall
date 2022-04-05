@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar">
+  <div class="container">
+      <div class="navbar-inner"><div class="navbar-logo"><a class="navbar-brand" href="#">Public Wall</a></div></div>
+
+      <div class="nav-links">
+
+          <ul class="nav-menu">
+              <li><a class="nav-item" href="/user-login">Login</a></li>
+              <li><a class="nav-item" href="/new-user">> New User Registration</a></li>
+          </ul>
+      </div>
+  </div>
+</nav>
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>New User Authentication</h1>
+          <p class="text-muted">Note: You will need a special code to register new users. Please contact your administrator if you do not have one. </p>
+          <div id="stage1">
+            <form id="stage1form">
+              <label for="codeinput">New User Code</label>
+              <input id="codeinput">
+              <i>Press [ENTER]</i>
+            </form>
+          </div>
+          <div id="stage2" style="display:none;">
+            <form id="stage2form">
+              <label for="usernameinput">Username</label>
+              <input id="usernameinput" type="input"><br>
+              <label for="passwordinput">Password</label>
+              <input id="passwordinput" type="password"><br>
+              <label for="emailinput">Email<br> </label>
+              <input id="emailinput" type="input">
+              <br/>
+              <button type="submit">Confirm</button>
+              <p  class="text-success" id="success" style="display:none;">
+                Successfully registered! Click <a href="/">here</a> to login.
+                </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="/static/newuser.js"></script>
+
+    {% endblock content %}

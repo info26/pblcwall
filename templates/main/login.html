@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% csrf_token %}
+<nav class="navbar">
+   <div class="container">
+       <div class="navbar-inner"><div class="navbar-logo"><a class="navbar-brand" href="#">Public Wall</a></div></div>
+ 
+       <div class="nav-links">
+ 
+           <ul class="nav-menu">
+               <li><a class="nav-item" href="/user-login">> Login</a></li>
+               <li><a class="nav-item" href="/new-user">New User Registration</a></li>
+           </ul>
+       </div>
+   </div>
+ </nav>
+<div class="container h-100">
+   <div class="row h-100 justify-content-center align-items-center">
+      <form class="col-12" id="loginform">
+         {% for temp in alerts %}
+         <div class="alert alert-{{temp.1}} alert-dismissible">{{ temp.0 }}<button type="button" class="close" data-dismiss="alert"
+               aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button></div>
+         {% endfor %}
+         <h1>Log In</h1>
+         <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" id="username">
+            <label for="password">Password</label>
+            <input class="form-control" id="password" type="password">
+
+         </div>
+         <p>You can also log in using <a href="{% url "social:begin" "google-oauth2" %}">Google</a>.</p>
+
+         <div class="form-group">
+            <button class="btn btn-primary" type="submit">Login</button>
+            <p class="text-muted">Are you new here? <a href="/new-user/">Register an account</a></p>
+         </div>
+      </form>
+   </div>
+</div>
+<script src="/static/login.js"></script>
+
+{% endblock content %}
