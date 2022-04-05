@@ -29,5 +29,5 @@ If You Want Google Authentication
 5. Click "Create Credentials" then "OAuth client ID"
 6. Fill out details, choose "Web Application"
 7. Add the domain you are hosting this app on to the authorized redirect URIs, plus "/oauth/complete/google-oauth2/"
- - Ex: "https://example.com/oauth/complete/google-oauth2/"
-7. Once you are done, get the client key and secret and add it to settings.py. 
+   - Ex: "https://example.com/oauth/complete/google-oauth2/"
+8. Once you are done, get the client key and secret and add it to settings.py. 
